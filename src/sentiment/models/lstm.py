@@ -60,6 +60,8 @@ def build_lstm_model(
         metrics=["accuracy"],
     )
 
+    # Newer Keras requires explicit build before count_params()
+    model.build(input_shape=(None, None))
     logger.info("LSTM model built — %d parameters", model.count_params())
     return model
 
