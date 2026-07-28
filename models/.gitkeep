@@ -1,0 +1,2 @@
+# Model artifacts directory — binary files are gitignored.
+# Subdirectories: baseline/, lstm/, transformer_onnx/
