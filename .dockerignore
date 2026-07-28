@@ -1,0 +1,52 @@
+# ========================
+# Build artifacts
+# ========================
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# ========================
+# Virtual environments
+# ========================
+venv/
+.venv/
+
+# ========================
+# Git & IDE
+# ========================
+.git/
+.github/
+.gitignore
+.vscode/
+.idea/
+
+# ========================
+# Data & Models (mounted as volumes)
+# ========================
+data/
+*.csv
+
+# ========================
+# Docs & Meta (not needed in image)
+# ========================
+docs/
+notebooks/
+*.md
+LICENSE
+
+# ========================
+# Testing
+# ========================
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================
+# Docker
+# ========================
+Dockerfile
+docker-compose.yml
+.dockerignore
