@@ -1,0 +1,100 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# ========================
+# Virtual Environments
+# ========================
+venv/
+.venv/
+env/
+.env/
+
+# ========================
+# IDE / Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ========================
+# Model Artifacts (large binaries)
+# ========================
+*.keras
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.pkl
+*.pickle
+*.joblib
+*.safetensors
+models/baseline/*.joblib
+models/baseline/*.json
+models/lstm/*.keras
+models/lstm/*.pickle
+models/transformer_onnx/*.onnx
+
+# ========================
+# Data
+# ========================
+data/
+*.csv
+*.tsv
+*.parquet
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+kaggle.json
+*.secret
+
+# ========================
+# Jupyter Notebook Checkpoints
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Docker
+# ========================
+*.log
+docker-compose.override.yml
+
+# ========================
+# Testing & Coverage
+# ========================
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ========================
+# Misc
+# ========================
+*.bak
+*.tmp
+*.temp
