@@ -1,0 +1,13 @@
+# ========================
+# Training-Only Dependencies (GPU environments)
+# ========================
+# Install these ONLY on Colab/Kaggle for transformer training.
+# The deployed application does NOT need these.
+
+-r requirements.txt
+
+# PyTorch (required for transformer fine-tuning only)
+torch>=2.0,<3.0
+
+# ONNX export
+optimum[exporters]>=1.16
