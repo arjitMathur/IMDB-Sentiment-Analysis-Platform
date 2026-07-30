@@ -33,20 +33,8 @@ env/
 # ========================
 # Model Artifacts (large binaries)
 # ========================
-*.keras
-*.h5
-*.hdf5
-*.pb
-*.onnx
-*.pkl
-*.pickle
-*.joblib
-*.safetensors
-models/baseline/*.joblib
-models/baseline/*.json
-models/lstm/*.keras
-models/lstm/*.pickle
-models/transformer_onnx/*.onnx
+models/
+!models/.gitkeep
 
 # ========================
 # Data

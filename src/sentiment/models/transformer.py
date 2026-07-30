@@ -12,6 +12,11 @@ for inference with transformer_infer.py (no PyTorch needed at deployment).
 
 from __future__ import annotations
 
+import os
+
+# Prevent HuggingFace transformers from importing TensorFlow (Keras 3 conflict)
+os.environ["TRANSFORMERS_NO_TF"] = "1"
+
 import json
 import time
 from pathlib import Path
@@ -26,7 +31,7 @@ def train_transformer(
     model_dir: Path | None = None,
     model_name: str = "distilbert-base-uncased",
     num_epochs: int = 3,
-    batch_size: int = 16,
+    batch_size: int = 8,
     learning_rate: float = 2e-5,
     max_length: int = 256,
 ) -> dict:
@@ -156,7 +161,9 @@ def _export_to_onnx(model, tokenizer, model_dir: Path, max_length: int) -> None:
 
     onnx_path = model_dir / "model.onnx"
 
-    # Create dummy input
+    # Move model to CPU for ONNX export (avoids device mismatch)
+    model = model.cpu()
+
     dummy_input = tokenizer(
         "This is a test review",
         return_tensors="pt",

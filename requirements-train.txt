@@ -9,5 +9,10 @@
 # PyTorch (required for transformer fine-tuning only)
 torch>=2.0,<3.0
 
+# HuggingFace training utilities
+accelerate>=0.26.0
+
 # ONNX export
+onnx
 optimum[exporters]>=1.16
+

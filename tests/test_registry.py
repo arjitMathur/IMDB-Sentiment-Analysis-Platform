@@ -31,7 +31,10 @@ class TestListing:
 
     def test_list_available_empty_when_no_models(self, tmp_path):
         registry = ModelRegistry(model_dir=tmp_path / "empty")
-        available = registry.list_available()
+        mock_model = MagicMock()
+        mock_model.is_available.return_value = False
+        with patch.object(registry, "_instantiate", return_value=mock_model):
+            available = registry.list_available()
         assert available == []
 
 
@@ -50,8 +53,10 @@ class TestLoading:
 
     def test_load_unavailable_returns_none(self, tmp_path):
         registry = ModelRegistry(model_dir=tmp_path)
-        # No model files exist, so it should return None
-        result = registry.load("baseline")
+        mock_model = MagicMock()
+        mock_model.is_available.return_value = False
+        with patch.object(registry, "_instantiate", return_value=mock_model):
+            result = registry.load("baseline")
         assert result is None
 
     def test_load_caches_model(self, tmp_path):
@@ -83,7 +88,10 @@ class TestDefaultModel:
 
     def test_get_default_returns_none_when_nothing_trained(self, tmp_path):
         registry = ModelRegistry(model_dir=tmp_path)
-        result = registry.get_default()
+        mock_model = MagicMock()
+        mock_model.is_available.return_value = False
+        with patch.object(registry, "_instantiate", return_value=mock_model):
+            result = registry.get_default()
         assert result is None
 
     def test_get_default_returns_cached(self, tmp_path):
