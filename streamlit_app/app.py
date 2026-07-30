@@ -149,7 +149,17 @@ st.markdown("""
 # ---------------------------------------------------------------------------
 @st.cache_resource
 def get_registry() -> ModelRegistry:
-    """Cached model registry (survives reruns)."""
+    """Cached model registry (survives reruns).
+
+    On cloud deployments, models are downloaded from HuggingFace Hub
+    on first launch.
+    """
+    try:
+        from src.sentiment.model_downloader import ensure_models
+        with st.spinner("📦 Downloading models on first launch (this only happens once)..."):
+            ensure_models()
+    except Exception as e:
+        st.warning(f"Could not auto-download models: {e}")
     return ModelRegistry()
 
 
