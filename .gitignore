@@ -50,8 +50,17 @@ data/
 .env
 .env.*
 !.env.example
+!web/.env.local.example
 kaggle.json
 *.secret
+
+# ========================
+# Next.js (web/)
+# ========================
+web/node_modules/
+web/.next/
+web/out/
+web/screenshot*.png
 
 # ========================
 # Jupyter Notebook Checkpoints

@@ -88,7 +88,17 @@ python -m uvicorn api.main:app --reload
 # API docs at http://localhost:8000/docs
 ```
 
-### 4. Run the Dashboard
+### 4. Run the Dashboard (Next.js)
+
+```bash
+cd web
+cp .env.local.example .env.local   # if needed; defaults to http://localhost:8000
+npm install
+npm run dev
+# UI at http://localhost:3000
+```
+
+Streamlit remains available for the legacy demo:
 
 ```bash
 streamlit run streamlit_app/app.py
@@ -187,7 +197,7 @@ API_KEY=              # Optional: set for API authentication
 
 - **ML**: TensorFlow/Keras, scikit-learn, HuggingFace Transformers, ONNX Runtime
 - **API**: FastAPI, Pydantic, Uvicorn
-- **Frontend**: Streamlit
+- **Frontend**: Next.js (ReelTone UI) + Streamlit (legacy)
 - **Testing**: Pytest (115 tests)
 - **CI/CD**: GitHub Actions
 - **Containerization**: Docker, docker-compose
